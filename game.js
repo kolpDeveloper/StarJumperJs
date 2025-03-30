@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }).setOrigin(0.5);
 
 
-            const playButton = this.add.text(450,250,'Играть',{
+            const playButton = this.add.text(400,250,'Играть',{
                 fontSize: '32px',
                 fill: '#ffffff',
                 backgroundColor: '#1e88e5',
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-                const settingButton = this.add.text(450,350,'Настройки',{
+                const settingButton = this.add.text(400,350,'Настройки',{
                     fontSize: '32px',
                 fill: '#ffffff',
                 backgroundColor: '#1e88e5',
@@ -168,6 +168,10 @@ class GameScene extends Phaser.Scene {
             this.load.spritesheet('dude', 'assets/dude.png', {
                 frameWidth: 32, frameHeight: 48
             });
+        }
+
+        init(data){
+          //  this.level = data.level 
         }
         
         create() {

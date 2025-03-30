@@ -94,7 +94,7 @@ class LevelSelectScene extends Phaser.Scene{
                     
                     .on('pointerover', ()=>levelButton.setStyle({fill: '#ff0'}))
                     .on('pointerout', ()=>levelButton.setStyle({fill: '#ffffff'}))
-                    .on('pointerdown', ()=>this.scene.start('GameSpace', {level: i}));
+                    .on('pointerdown', ()=>this.scene.start('GameScene'));
 
 
                 }
@@ -155,6 +155,7 @@ class SettingsScene extends Phaser.Scene {
 
 
 class GameScene extends Phaser.Scene {
+    
         constructor() {
             super({ key: 'GameScene' });
         }
@@ -170,17 +171,18 @@ class GameScene extends Phaser.Scene {
             });
         }
 
+        
+
         init(data){
           //  this.level = data.level 
         }
         
         create() {
+            this.escKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
             const music = this.sound.add('backgroundMusic');
             music.setLoop(true);
             music.setVolume(0.4);
             music.play();
-
-            
             this.add.image(400, 300, 'sky');
             
             
@@ -249,11 +251,16 @@ class GameScene extends Phaser.Scene {
             bombs = this.physics.add.group();
             this.physics.add.collider(bombs, platforms);
             this.physics.add.collider(player, bombs, this.hitBomb, null, this);
+
+            if (this.escKey.isDown) {
+                this.scene.start('MainMenuScene');
+            }
         }
         
         update() {
             if(gameOver){
-                window.location.reload();
+                this.scene.restart();
+                gameOver = false;
             }   
             
             if(cursors.left.isDown){
@@ -271,6 +278,7 @@ class GameScene extends Phaser.Scene {
                 player.setVelocityY(-330);
             }
         }
+    
         
         collectStar(player, star) {
             star.disableBody(true, true);

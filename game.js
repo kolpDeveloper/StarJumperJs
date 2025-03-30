@@ -105,8 +105,8 @@ class LevelSelectScene extends Phaser.Scene{
                     padding: { left: 20, right: 20, top: 10, bottom: 10 }
                 }).setOrigin(0.5)
                 .setInteractive({useHandCursor: true})
-                    .on('pointerover', ()=>levelButton.setStyle({fill: '#ff0'}))
-                    .on('pointerout', ()=>levelButton.setStyle({fill: '#ffffff'}))
+                    .on('pointerover', ()=>BackButton.setStyle({fill: '#ff0'}))
+                    .on('pointerout', ()=>BackButton.setStyle({fill: '#ffffff'}))
                     .on('pointerdown', ()=>this.scene.start('MainMenuScene'));
                 }
 
@@ -252,15 +252,26 @@ class GameScene extends Phaser.Scene {
             this.physics.add.collider(bombs, platforms);
             this.physics.add.collider(player, bombs, this.hitBomb, null, this);
 
-            if (this.escKey.isDown) {
+            this.handleEsc = () => {
+                console.log('ESC pressed');
+                if (this.music && this.music.isPlaying) {
+                    this.music.setMute(true);
+                    console.log('Music stopped');
+                } else {
+                    console.log('No music to stop or already stopped');
+                }
                 this.scene.start('MainMenuScene');
-            }
+                console.log('Switching to MainMenuScene');
+            };
+
+            this.input.keyboard.on('keydown-ESC', this.handleEsc);
         }
         
         update() {
-            if(gameOver){
+            
+            if(this.gameOver){
                 this.scene.restart();
-                gameOver = false;
+                this.gameOver = false;
             }   
             
             if(cursors.left.isDown){

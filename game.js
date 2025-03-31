@@ -134,7 +134,7 @@ class SettingsScene extends Phaser.Scene {
         
     
 
-                this.add.text(350, 300, 'Telegram: t.me/usrlinux', {
+                this.add.text(350, 300, '\uD83C\uDDF0\uD83C\uDDFF', {
                     fontSize: '18px',
                     fill: '#ffffff'
                 }).setOrigin(0.5);
@@ -161,7 +161,7 @@ class GameScene extends Phaser.Scene {
         }
 
         preload() {
-            this.load.audio('backgroundMusic', 'assets/Honor.mp3');
+            this.load.audio('backgroundMusic', 'assets/Honor.ogg');
             this.load.image('sky', 'assets/sky.png');
             this.load.image('ground', 'assets/platform.png');
             this.load.image('star', 'assets/star.png');
@@ -181,7 +181,7 @@ class GameScene extends Phaser.Scene {
             this.escKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
             const music = this.sound.add('backgroundMusic');
             music.setLoop(true);
-            music.setVolume(0.4);
+            music.setVolume(0.2);
             music.play();
             this.add.image(400, 300, 'sky');
             
@@ -252,23 +252,21 @@ class GameScene extends Phaser.Scene {
             this.physics.add.collider(bombs, platforms);
             this.physics.add.collider(player, bombs, this.hitBomb, null, this);
 
-            this.handleEsc = () => {
-                console.log('ESC pressed');
-                if (this.music && this.music.isPlaying) {
-                    this.music.setMute(true);
-                    console.log('Music stopped');
-                } else {
-                    console.log('No music to stop or already stopped');
-                }
-                this.scene.start('MainMenuScene');
-                console.log('Switching to MainMenuScene');
-            };
 
+            //todo bug
+            this.handleEsc = () => {
+            
+                this.scene.start('MainMenuScene');
+                music.stop();   
+            };
+            //bug
             this.input.keyboard.on('keydown-ESC', this.handleEsc);
         }
         
         update() {
             
+
+
             if(this.gameOver){
                 this.scene.restart();
                 this.gameOver = false;
@@ -290,7 +288,8 @@ class GameScene extends Phaser.Scene {
             }
         }
     
-        
+        //todo
+        //bug после перезахода количество очков с прошлой игры остаются
         collectStar(player, star) {
             star.disableBody(true, true);
             score += 10;

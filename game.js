@@ -158,6 +158,10 @@ class GameScene extends Phaser.Scene {
     
         constructor() {
             super({ key: 'GameScene' });
+
+
+                
+
         }
 
         preload() {
@@ -253,18 +257,18 @@ class GameScene extends Phaser.Scene {
             this.physics.add.collider(player, bombs, this.hitBomb, null, this);
 
 
-            //todo bug
+            
             this.handleEsc = () => {
             
                 this.scene.start('MainMenuScene');
                 music.stop();   
             };
-            //bug
+            
             this.input.keyboard.on('keydown-ESC', this.handleEsc);
         }
         
         update() {
-            
+        
 
 
             if(this.gameOver){
@@ -308,6 +312,8 @@ class GameScene extends Phaser.Scene {
                 bomb.setBounce(1);
                 bomb.setCollideWorldBounds(true);
                 bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+
+                
             }
         }
         

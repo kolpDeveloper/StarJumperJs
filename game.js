@@ -321,7 +321,7 @@ class SettingsScene extends Phaser.Scene {
                 this.gameOver = true; 
 
 
-                const replayButton = this.add.text(650,450,'Перезапуск',{
+                const replayButton = this.add.text(400,250,'Перезапуск',{
                     fontSize: '32px',
                 fill: '#ffffff',
                 backgroundColor: '#1e88e5',
@@ -331,6 +331,17 @@ class SettingsScene extends Phaser.Scene {
                     .on('pointerover', ()=>replayButton.setStyle({fill: '#ff0'}))
                     .on('pointerout', ()=>replayButton.setStyle({fill: '#ffffff'}))
                     .on('pointerdown', ()=>this.scene.start('GameScene'));
+
+                    const toMainMenuAfterGameOverButton = this.add.text(400,350,'Вернуться в меню',{
+                        fontSize: '32px',
+                    fill: '#ffffff',
+                    backgroundColor: '#1e88e5',
+                    padding: {left: 30, right: 30, top: 10, bottom: 10}
+                    }).setOrigin(0.5)
+                    .setInteractive({useHandCursor:true })
+                        .on('pointerover', ()=>toMainMenuAfterGameOverButton.setStyle({fill: '#ff0'}))
+                        .on('pointerout', ()=>toMainMenuAfterGameOverButton.setStyle({fill: '#ffffff'}))
+                        .on('pointerdown', ()=>this.scene.start('MainMenuScene'));
         }
         }
     

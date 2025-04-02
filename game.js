@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
             super({key: 'MainMenuScene'})
         }
         preload(){
-            this.load.image('menuBackground', 'assets/bg_grey.png');
+            this.load.image('menuBackground', 'assets/mainMenuBg.png');
         }
 
         create(){

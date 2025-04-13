@@ -1,4 +1,3 @@
-
 import MainMenuScene from './scenes/MainMenuScene.js';
 import LevelSelectScene from './scenes/LevelSelectScene.js';
 import SettingsScene from './scenes/SettingsScene.js';
@@ -14,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             default: 'arcade',
             arcade: {
                 gravity: { y: 300 },
-               // debug: false 
+               
             }
         },
         scene: [MainMenuScene, LevelSelectScene, SettingsScene, GameScene]

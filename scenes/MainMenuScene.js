@@ -39,5 +39,4 @@ class MainMenuScene extends Phaser.Scene {
     }
 }
 
-// Экспортируем класс, чтобы он был доступен в других файлах
 export default MainMenuScene;

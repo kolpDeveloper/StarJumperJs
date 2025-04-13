@@ -12,7 +12,6 @@ class GameScene extends Phaser.Scene {
         this.escKey = null;
         this.music = null;
         
-        
         this.handleEsc = this.handleEsc.bind(this);
     }
     
@@ -28,7 +27,6 @@ class GameScene extends Phaser.Scene {
     }
     
     init(data) {
-        // Сохраняем уровень, если он передан
         this.level = data.level || 1;
     }
     
@@ -44,7 +42,6 @@ class GameScene extends Phaser.Scene {
         this.gameOver = false; 
         this.escKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
         
-        // Оптимизация музыки - проверяем существование и воспроизведение
         if (!this.music || !this.music.isPlaying) { 
             this.music = this.sound.add('backgroundMusic');
             this.music.setLoop(true);
@@ -52,9 +49,7 @@ class GameScene extends Phaser.Scene {
             this.music.play();
         }
         
-        
         this.add.image(400, 300, 'sky');
-        
         
         this.platforms = this.physics.add.staticGroup();
         this.platforms.create(400, 568, 'ground').setScale(2).refreshBody();
@@ -62,11 +57,9 @@ class GameScene extends Phaser.Scene {
         this.platforms.create(50, 250, 'ground');
         this.platforms.create(750, 220, 'ground');
         
-        
         this.player = this.physics.add.sprite(100, 450, 'dude');
         this.player.setBounce(0.2);
         this.player.setCollideWorldBounds(true);
-        
         
         this.anims.create({
             key: 'left',
@@ -88,12 +81,9 @@ class GameScene extends Phaser.Scene {
             repeat: -1
         });
         
-        
         this.physics.add.collider(this.player, this.platforms);
         
-        
         this.cursors = this.input.keyboard.createCursorKeys();
-        
         
         this.stars = this.physics.add.group({
             key: 'star',
@@ -101,30 +91,24 @@ class GameScene extends Phaser.Scene {
             setXY: {x: 12, y: 0, stepX: 70}
         });
         
-        
         this.stars.children.iterate((child) => {
             child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
         });
         this.physics.add.collider(this.stars, this.platforms);
-        
         
         this.scoreText = this.add.text(16, 16, `Score: ${this.score}`, { 
             fontSize: '32px',
             fill: '#ff0000'
         });
         
-        
         this.bombs = this.physics.add.group();
         this.physics.add.collider(this.bombs, this.platforms);
-        
         
         this.physics.add.overlap(this.player, this.stars, this.collectStar, null, this);
         this.physics.add.collider(this.player, this.bombs, this.hitBomb, null, this);
         
-        
         this.input.keyboard.on('keydown-ESC', this.handleEsc);
         
-    
         this.events.on('shutdown', () => {
             this.input.keyboard.off('keydown-ESC', this.handleEsc);
             if (this.music) {
@@ -165,7 +149,6 @@ class GameScene extends Phaser.Scene {
                 child.enableBody(true, child.x, 0, true, true);
             });
             
-            // Создаем бомбу на противоположной стороне от игрока
             let x = (this.player.x < 400) 
                 ? Phaser.Math.Between(400, 800)
                 : Phaser.Math.Between(0, 400);
@@ -207,5 +190,4 @@ class GameScene extends Phaser.Scene {
     }
 }
 
-// Экспортируем класс, чтобы он был доступен в других файлах
 export default GameScene;

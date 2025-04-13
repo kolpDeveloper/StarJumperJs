@@ -12,6 +12,11 @@ class GameScene extends Phaser.Scene {
         this.escKey = null;
         this.music = null;
         
+        this.keyW = null;
+        this.keyA = null;
+        this.keyS = null;
+        this.keyD = null;
+        
         this.handleEsc = this.handleEsc.bind(this);
     }
     
@@ -41,6 +46,12 @@ class GameScene extends Phaser.Scene {
         this.score = 0;        
         this.gameOver = false; 
         this.escKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
+        
+        
+        this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+        this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         
         if (!this.music || !this.music.isPlaying) { 
             this.music = this.sound.add('backgroundMusic');
@@ -121,10 +132,10 @@ class GameScene extends Phaser.Scene {
         
         if (this.gameOver) return;
         
-        if (this.cursors.left.isDown) {
+        if (this.cursors.left.isDown || this.keyA.isDown) {
             this.player.setVelocityX(-160);
             this.player.anims.play('left', true);
-        } else if (this.cursors.right.isDown) {
+        } else if (this.cursors.right.isDown || this.keyD.isDown) {
             this.player.setVelocityX(160);
             this.player.anims.play('right', true);
         } else {
@@ -132,7 +143,7 @@ class GameScene extends Phaser.Scene {
             this.player.anims.play('turn', true);
         }
         
-        if (this.cursors.up.isDown && this.player.body.touching.down) {
+        if ((this.cursors.up.isDown || this.keyW.isDown) && this.player.body.touching.down) {
             this.player.setVelocityY(-330);
         }
     }

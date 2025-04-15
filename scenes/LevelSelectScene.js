@@ -34,7 +34,7 @@ class LevelSelectScene extends Phaser.Scene {
             .on('pointerdown', () => this.scene.start('GameScene', {level: i + 1}));
         }
         
-        const BackButton = this.add.text(400, 400, 'Назад', {
+        var BackButton = this.add.text(400, 400, 'Назад', {
             fontSize: '24px',
             fill: '#ffffff',
             backgroundColor: '#4caf50',

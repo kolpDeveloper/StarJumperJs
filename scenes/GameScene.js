@@ -1,23 +1,27 @@
 class GameScene extends Phaser.Scene {
+
+    platforms = null;
+        player = null;
+        cursors = null;
+        stars = null;
+        score = 0;
+        scoreText = null;
+        bombs = null;
+        gameOver = false;
+        escKey = null;
+        music = null;
+    
+                
+        keyW = null;
+        keyA = null;
+        keyS = null;
+        keyD = null;
+    
     constructor() {
         super({ key: 'GameScene' });
-        this.platforms = null;
-        this.player = null;
-        this.cursors = null;
-        this.stars = null;
-        this.score = 0;
-        this.scoreText = null;
-        this.bombs = null;
-        this.gameOver = false;
-        this.escKey = null;
-        this.music = null;
-        
-        this.keyW = null;
-        this.keyA = null;
-        this.keyS = null;
-        this.keyD = null;
         
         this.handleEsc = this.handleEsc.bind(this);
+        
     }
     
     preload() {
@@ -145,9 +149,11 @@ class GameScene extends Phaser.Scene {
         
         if ((this.cursors.up.isDown || this.keyW.isDown) && this.player.body.touching.down) {
             this.player.setVelocityY(-330);
-        }
+        }        
     }
     
+
+
     collectStar(player, star) { 
         star.disableBody(true, true);
         
@@ -171,6 +177,7 @@ class GameScene extends Phaser.Scene {
         }
     }
     
+
     hitBomb(player, bomb) { 
         this.physics.pause();
         player.setTint(0xff0000);
@@ -198,6 +205,14 @@ class GameScene extends Phaser.Scene {
         .on('pointerover', () => toMainMenuAfterGameOverButton.setStyle({fill: '#ff0'}))
         .on('pointerout', () => toMainMenuAfterGameOverButton.setStyle({fill: '#ffffff'}))
         .on('pointerdown', () => this.scene.start('MainMenuScene'));
+    }
+
+    createPlatformsForLevel() {
+     
+        this.platforms.children.entries.slice(1).forEach(platform => platform.destroy());
+
+        const platformsCount = this.createPlatformsForLevel.platformCount;
+        
     }
 }
 

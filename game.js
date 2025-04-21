@@ -4,6 +4,7 @@ import SettingsScene from './scenes/SettingsScene.js';
 import GameScene from './scenes/GameScene.js';
 
 document.addEventListener('DOMContentLoaded', function() {
+    var isDebugMode = null;
     
     let config = {
         type: Phaser.AUTO,
@@ -13,12 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
             default: 'arcade',
             arcade: {
                 gravity: { y: 300 },
-                
-                
+                debug: isDebugMode
             }
         },
         scene: [MainMenuScene, LevelSelectScene, SettingsScene, GameScene]
     };
-
+    
     let game = new Phaser.Game(config);
 });

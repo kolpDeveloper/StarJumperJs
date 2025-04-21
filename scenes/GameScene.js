@@ -11,6 +11,7 @@ class GameScene extends Phaser.Scene {
     bombs = null;
     gameOver = false;
     escKey = null;
+    debugMode = false;
     
     
     keyW = null;

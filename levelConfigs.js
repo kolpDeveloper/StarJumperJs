@@ -1,0 +1,114 @@
+const levelConfigs = {
+    1: {
+        stars: 12,
+        bombSpeed: 160,
+        playerSpeed: 170,
+        jumpForce: 340,
+        backgroundColor: 0x87CEEB,
+        assets: {
+            background: 'sky',
+            platform: 'ground',
+            player: 'dude',
+            star: 'star',
+            bomb: 'bomb',
+            music: 'backgroundMusic'
+        },
+        platforms: [
+            { x: 400, y: 568, scale: 2 },
+            { x: 600, y: 400, scale: 1 },
+            { x: 50, y: 250, scale: 1 },
+            { x: 750, y: 220, scale: 1 }
+        ]
+    },
+    
+    2: {
+        stars: 15,
+        bombSpeed: 180,
+        playerSpeed: 180,
+        jumpForce: 350,
+        backgroundColor: 0x4B0082,
+        assets: {
+            background: 'sky',
+            platform: 'ground',
+            player: 'dude',
+            star: 'star',
+            bomb: 'bomb',
+            music: 'backgroundMusic'
+        },
+        platforms: [
+            { x : 400, y : 568, scale : 2 },   
+            { x : 650, y : 338, scale : 0.6 },
+            
+        ]
+    },
+    
+    3: {
+        stars: 18,
+        bombSpeed: 200,
+        playerSpeed: 190,
+        jumpForce: 360,
+        backgroundColor: 0x8B0000,
+        assets: {
+            background: 'sky',
+            platform: 'ground',
+            player: 'dude',
+            star: 'star',
+            bomb: 'bomb',
+            music: 'backgroundMusic'
+        },
+        platforms: [
+            { x: 400, y: 568, scale: 2 },
+            { x: 600, y: 400, scale: 1 },
+            { x: 50, y: 250, scale: 1 },
+            { x: 750, y: 220, scale: 1 },
+            { x: 400, y: 320, scale: 1 },
+            { x: 200, y: 180, scale: 1 }
+        ]
+    },
+    
+    4: {
+        stars: 20,
+        bombSpeed: 220,
+        playerSpeed: 200,
+        jumpForce: 370,
+        backgroundColor: 0x006400,
+        assets: {
+            background: 'sky',
+            platform: 'ground',
+            player: 'dude',
+            star: 'star',
+            bomb: 'bomb',
+            music: 'backgroundMusic'
+        },
+        platforms: [
+            { x: 400, y: 568, scale: 2 },
+            { x: 600, y: 400, scale: 1 },
+            { x: 50, y: 250, scale: 1 },
+            
+        ]
+    },
+    
+    5: {
+        stars: 25,
+        bombSpeed: 240,
+        playerSpeed: 210,
+        jumpForce: 380,
+        backgroundColor: 0x000000,
+        assets: {
+            background: 'sky',
+            platform: 'ground',
+            player: 'dude',
+            star: 'star',
+            bomb: 'bomb',
+            music: 'backgroundMusic'
+        },
+        platforms: [
+            { x: 400, y: 568, scale: 2 },
+            { x: 600, y: 400, scale: 1 },
+            { x: 50, y: 250, scale: 1 },
+            
+        ]
+    }
+};
+
+export default levelConfigs;

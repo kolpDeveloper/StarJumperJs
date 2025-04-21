@@ -23,7 +23,7 @@ class SettingsScene extends Phaser.Scene {
         const backButton = this.add.text(400, 400, 'Назад', {
             fontSize: '24px',
             fill: '#ffffff',
-            backgroundColor: '#f44336',
+            backgroundColor: '#4caf50',
             padding: { left: 20, right: 20, top: 10, bottom: 10 }
         }).setOrigin(0.5)
         .setInteractive({ useHandCursor: true })

@@ -18,7 +18,7 @@ class LevelSelectScene extends Phaser.Scene {
         const numLevels = 5;
         const buttonWidth = 150;
         const spacing = 15; 
-        const totalWidth = numLevels * buttonWidth + (numLevels - 1) * spacing;
+        const totalWidth = numLevels * buttonWidth + (numLevels - 1) * spacing - 10;
         const startX = 400 - totalWidth / 2 + buttonWidth / 2;
 
         for(let i = 0; i < numLevels; i++) {

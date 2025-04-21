@@ -4,7 +4,7 @@ import SettingsScene from './scenes/SettingsScene.js';
 import GameScene from './scenes/GameScene.js';
 
 document.addEventListener('DOMContentLoaded', function() {
-    var isDebugMode = null;
+    const isDebugMode = localStorage.getItem('debugMode') === 'true';
     
     let config = {
         type: Phaser.AUTO,

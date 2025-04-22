@@ -1,4 +1,5 @@
 import levelConfigs from '../levelConfigs.js';
+import WinScene from './WinScene.js';
 
 class GameScene extends Phaser.Scene {
 
@@ -12,6 +13,7 @@ class GameScene extends Phaser.Scene {
     gameOver = false;
     escKey = null;
     debugMode = false;
+    LevelScore = null;
     
     
     keyW = null;
@@ -171,10 +173,6 @@ class GameScene extends Phaser.Scene {
             fill: '#ff0000'
         });
         
-        /*if (this.bombs) {
-            this.bombs.clear(true, true);
-    }*/
-        
         this.bombs = this.physics.add.group();
         this.physics.add.collider(this.bombs, this.platforms);
         
@@ -217,6 +215,14 @@ class GameScene extends Phaser.Scene {
         if ((this.cursors.up.isDown || this.keyW.isDown) && this.player.body.touching.down) {
             this.player.setVelocityY(-jumpForce);
         }        
+
+
+
+        if(!this.gameOver && this.score >= this.LevelScore ){
+            this.gameOver = true;
+            this.scene.start('WinScene');
+
+        }
     }
     
 

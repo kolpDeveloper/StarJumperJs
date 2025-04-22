@@ -2,6 +2,7 @@ import MainMenuScene from './scenes/MainMenuScene.js';
 import LevelSelectScene from './scenes/LevelSelectScene.js';
 import SettingsScene from './scenes/SettingsScene.js';
 import GameScene from './scenes/GameScene.js';
+import WinScene from './scenes/WinScene.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     const isDebugMode = localStorage.getItem('debugMode') === 'true';
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 debug: isDebugMode
             }
         },
-        scene: [MainMenuScene, LevelSelectScene, SettingsScene, GameScene]
+        scene: [MainMenuScene, LevelSelectScene, SettingsScene, GameScene, WinScene]
     };
     
     let game = new Phaser.Game(config);

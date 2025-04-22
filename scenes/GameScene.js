@@ -13,7 +13,7 @@ class GameScene extends Phaser.Scene {
     gameOver = false;
     escKey = null;
     debugMode = false;
-    LevelScore = null;
+    
     
     keyW = null;
     keyA = null;
@@ -211,11 +211,6 @@ class GameScene extends Phaser.Scene {
         if ((this.cursors.up.isDown || this.keyW.isDown) && this.player.body.touching.down) {
             this.player.setVelocityY(-jumpForce);
         }        
-
-        if(!this.gameOver && this.totalStarsCollected >= this.starsToCollect){
-            this.gameOver = true;
-            this.scene.start('WinScene');
-        }
     }
     
     collectStar(player, star) { 

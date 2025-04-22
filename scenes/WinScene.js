@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class WinScene extends Phaser.Scene {
     constructor() {
         super({ key: 'WinScene' });
@@ -28,7 +27,7 @@ class WinScene extends Phaser.Scene {
     }
 }
 
-=======
+
 class WinScene extends Phaser.Scene {
     constructor() {
         super({ key: 'WinScene' });
@@ -58,5 +57,5 @@ class WinScene extends Phaser.Scene {
     }
 }
 
->>>>>>> 1bc65228b0b1b0d4065345509790046fd2e75d23
+
 export default WinScene;

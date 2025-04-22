@@ -12,7 +12,7 @@ class WinScene extends Phaser.Scene {
 
 
 
-        const restartButton = this.add.text(400,400, "Restart",{
+        const restartButton = this.add.text(400,400, "Выход в главное меню",{
             fontSize: '28px',
             fill: '#ffffff',
             backgroundColor: '#0077cc',

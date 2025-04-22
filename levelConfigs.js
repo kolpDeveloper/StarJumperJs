@@ -1,6 +1,6 @@
 const levelConfigs = {
     1: {
-        stars: 12,
+        stars: 128,
         bombSpeed: 160,
         playerSpeed: 170,
         jumpForce: 340,
@@ -43,14 +43,14 @@ const levelConfigs = {
     },
     
     3: {
-        stars: 18,
+        stars: 188,
         bombSpeed: 200,
         playerSpeed: 190,
         jumpForce: 360,
         backgroundColor: 0x8B0000,
         assets: {
             background: 'sky',
-            platform: 'ground',
+            platform: 'ground3',
             player: 'dude',
             star: 'star',
             bomb: 'bomb',
@@ -59,7 +59,6 @@ const levelConfigs = {
         platforms: [
             { x: 400, y: 568, scale: 2 },
             { x: 600, y: 400, scale: 1 },
-            { x: 50, y: 250, scale: 1 },
             { x: 750, y: 220, scale: 1 },
             { x: 400, y: 320, scale: 1 },
             { x: 200, y: 180, scale: 1 }

@@ -4,7 +4,6 @@ const levelConfigs = {
         bombSpeed: 160,
         playerSpeed: 170,
         jumpForce: 340,
-        LevelScore: 1000,
         backgroundColor: 0x87CEEB,
         assets: {
             background: 'sky',
@@ -27,7 +26,6 @@ const levelConfigs = {
         bombSpeed: 180,
         playerSpeed: 180,
         jumpForce: 350,
-        LevelScore: 1000,
         backgroundColor: 0x4B0082,
         assets: {
             background: 'sky',
@@ -49,7 +47,7 @@ const levelConfigs = {
         bombSpeed: 200,
         playerSpeed: 190,
         jumpForce: 360,
-        LevelScore: 1000,
+
         backgroundColor: 0x8B0000,
         assets: {
             background: 'sky',
@@ -73,7 +71,6 @@ const levelConfigs = {
         bombSpeed: 220,
         playerSpeed: 200,
         jumpForce: 370,
-        LevelScore: 1000,
         backgroundColor: 0x006400,
         assets: {
             background: 'sky',
@@ -96,7 +93,6 @@ const levelConfigs = {
         bombSpeed: 240,
         playerSpeed: 210,
         jumpForce: 380,
-        LevelScore: 1000,
         backgroundColor: 0x000000,
         assets: {
             background: 'sky',

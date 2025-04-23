@@ -4,7 +4,7 @@ class WinScene extends Phaser.Scene {
     }
 
 
-    init(){
+    init(data){
         this.level = data.level;
     }
 

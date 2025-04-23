@@ -1,3 +1,5 @@
+import levelConfigs from '../levelConfigs.js';
+
 class WinScene extends Phaser.Scene {
     constructor() {
         super({ key: 'WinScene' });
@@ -10,7 +12,7 @@ class WinScene extends Phaser.Scene {
 
 
     create() {
-        this.add.text(400, 200, '🎉 Победа! 🎉', {
+        this.add.text(400, 100, '🎉 Победа! 🎉', {
             fontSize: '48px',
             fill: '#00ff00',
             fontStyle: 'bold',
@@ -27,10 +29,7 @@ class WinScene extends Phaser.Scene {
             .on('pointerover', () => restartButton.setStyle({ fill: '#ff0' }))
             .on('pointerout', () => restartButton.setStyle({ fill: '#ffffff' }))
             .on('pointerdown', () => {
-
-                const levelKey = levelConfigs[this.level];
-                this.scene.start(levelKey);
-            
+                this.scene.start('GameScene', { level: this.level });
             });
 
 
@@ -45,13 +44,13 @@ class WinScene extends Phaser.Scene {
             .on('pointerover', () => toNextLevel.setStyle({ fill: '#ff0' }))
             .on('pointerout', () => toNextLevel.setStyle({ fill: '#ffffff' }))
             .on('pointerdown', () => { 
-
-                const levelKey = levelConfigs[this.level];
+                const nextLevel = this.level + 1;
                 
-                if(levelKey <= 5){
-                    this.scene.start(levelKey);
+                if(nextLevel <= 5 && levelConfigs[nextLevel]){
+                    this.scene.start('GameScene', { level: nextLevel });
                 }else{
-                    console.log("StartLevelException");
+                    console.log("StartLevelException: Достигнут максимальный уровень");
+                    this.scene.start('MainMenuScene');
                 }
                 
             });

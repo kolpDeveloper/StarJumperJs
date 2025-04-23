@@ -1,6 +1,6 @@
 const levelConfigs = {
     1: {
-        stars: 128,
+        stars: 18,
         bombSpeed: 160,
         playerSpeed: 170,
         jumpForce: 340,
@@ -22,7 +22,7 @@ const levelConfigs = {
     },
     
     2: {
-        stars: 15,
+        stars: 25,
         bombSpeed: 180,
         playerSpeed: 180,
         jumpForce: 350,
@@ -43,7 +43,7 @@ const levelConfigs = {
     },
     
     3: {
-        stars: 188,
+        stars: 25,
         bombSpeed: 200,
         playerSpeed: 190,
         jumpForce: 360,

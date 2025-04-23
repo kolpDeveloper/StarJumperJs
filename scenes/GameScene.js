@@ -232,7 +232,7 @@ class GameScene extends Phaser.Scene {
         
         if (!this.gameOver && this.totalStarsCollected >= this.starsToCollect) {
             this.gameOver = true;
-            this.scene.start('WinScene');
+            this.scene.start('WinScene', { level: this.level });
         }
     }
     

@@ -62,24 +62,6 @@ body {
 }
 
 
-.neon-sign {
-    position: absolute;
-    top: 20px;
-    font-family: 'Arial', sans-serif;
-    font-size: 60px;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 
-        0 0 5px #0ff,
-        0 0 10px #0ff,
-        0 0 20px #0ff,
-        0 0 40px #0080ff,
-        0 0 80px #0080ff;
-    z-index: 20;
-    letter-spacing: 5px;
-}
-
-
 .control-panel {
     position: absolute;
     width: 750px;

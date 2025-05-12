@@ -9,7 +9,7 @@ class MainMenuScene extends Phaser.Scene {
     
     create() {
         this.add.image(400, 300, 'menuBackground');
-        this.add.text(400, 100, 'Gold Leap', {
+        this.add.text(400, 100, 'Star Jumper', {
             fontSize: '64px',
             fill: '#ffffff',
             fontStyle: 'bold'

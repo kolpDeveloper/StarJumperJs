@@ -14,7 +14,7 @@
 
 ## ⚙️ Для запуска локально
 ```bash
-git clone https://github.com/kolpDeveloper/PhaserGameJs.git
+git clone https://github.com/kolpDeveloper/StarJumperJs
 ```
 
 ## ⚙️ Сыграть сейчас

@@ -21,7 +21,7 @@ class SettingsScene extends Phaser.Scene {
             fontSize: '24px',
             fill: '#ffffff'
         }).setOrigin(0, 0.5);
-        
+
         const checkboxBg = this.add.rectangle(450, 250, 30, 30, 0x333333)
             .setOrigin(0.5)
             .setInteractive({ useHandCursor: true });
@@ -32,6 +32,19 @@ class SettingsScene extends Phaser.Scene {
         }).setOrigin(0.5);
         
         checkmark.setVisible(isDebugMode);
+
+        const githubText = this.add.text(250, 300, 'Мой профиль на Github ', {
+            fontSize: '18px',
+            fill: '#00ff00',
+            backgroundColor: '#',
+            padding: { left: 10, right: 10, top: 5, bottom: 5 }
+        }).setOrigin(0, 0.5)
+        .setInteractive({ useHandCursor: true })
+        .on('pointerover', () => githubText.setStyle({ fill: '#ffff00' }))
+        .on('pointerout', () => githubText.setStyle({ fill: '#00ff00' }))
+        .on('pointerdown', () => {
+            window.open('https://github.com/kolpDeveloper', '_blank');
+        });
         
         const restartMessage = this.add.text(400, 350, 'Перезапустите игру для применения настроек', {
             fontSize: '16px',

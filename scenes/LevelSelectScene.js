@@ -16,17 +16,26 @@ class LevelSelectScene extends Phaser.Scene {
         }).setOrigin(0.5);
 
         const numLevels = 5;
-        const buttonWidth = 150;
-        const spacing = 15; 
-        const totalWidth = numLevels * buttonWidth + (numLevels - 1) * spacing - 10;
-        const startX = 400 - totalWidth / 2 + buttonWidth / 2;
+        const buttonWidth = 130;
+        const buttonHeight = 50;
+        const spacing = 20;
+        const buttonsPerRow = 3;
+        
+        const startX = 400 - ((buttonWidth + spacing) * (buttonsPerRow - 1)) / 2;
+        const startY = 200;
 
         for(let i = 0; i < numLevels; i++) {
-            const levelButton = this.add.text(startX + i * (buttonWidth + spacing), 250, `Уровень ${i + 1}`, {
-                fontSize: '16px',
+            const row = Math.floor(i / buttonsPerRow);
+            const col = i % buttonsPerRow;
+            
+            const x = startX + col * (buttonWidth + spacing);
+            const y = startY + row * (buttonHeight + spacing);
+
+            const levelButton = this.add.text(x, y, `Уровень ${i + 1}`, {
+                fontSize: '14px',
                 fill: '#ffffff',
                 backgroundColor: '#f44336',
-                padding: { left: 20, right: 20, top: 10, bottom: 10 }
+                padding: { left: 15, right: 15, top: 8, bottom: 8 }
             }).setOrigin(0.5)
             .setInteractive({useHandCursor: true})
             .on('pointerover', () => levelButton.setStyle({fill: '#ff0'}))
@@ -34,7 +43,7 @@ class LevelSelectScene extends Phaser.Scene {
             .on('pointerdown', () => this.scene.start('GameScene', {level: i + 1}));
         }
         
-        var BackButton = this.add.text(400, 400, 'Назад', {
+        var BackButton = this.add.text(400, 350, 'Назад', {
             fontSize: '24px',
             fill: '#ffffff',
             backgroundColor: '#4caf50',

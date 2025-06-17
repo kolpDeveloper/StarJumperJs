@@ -14,12 +14,10 @@ class GameScene extends Phaser.Scene {
     escKey = null;
     debugMode = false;
     
-    
     keyW = null;
     keyA = null;
     keyS = null;
     keyD = null;
-    
     
     levelConfig = null;
     
@@ -29,61 +27,12 @@ class GameScene extends Phaser.Scene {
         this.handleEsc = this.handleEsc.bind(this);
     }
     
-    preload() {
-        
-        this.load.audio('backgroundMusic', 'assets/Honor.ogg');
-        this.load.image('sky', 'assets/sky.png');
-        this.load.image('ground', 'assets/platform.png');
-        this.load.image('star', 'assets/star.png');
-        this.load.image('bomb', 'assets/bomb.png');
-        this.load.spritesheet('dude', 'assets/dude.png', {
-            frameWidth: 32, frameHeight: 48
-        });
-        
-        
-        this.load.image('sky2', 'assets/moon_bg.png'); 
-        this.load.image('ground2', 'assets/moon_sand.png'); 
-        this.load.image('star2', 'assets/star.png'); 
-        this.load.image('bomb2', 'assets/bomb.png'); 
-        this.load.spritesheet('dude2', 'assets/dude.png', { 
-            frameWidth: 32, frameHeight: 48
-        });
-        
-        this.load.image('sky3', 'assets/cave.png'); 
-        this.load.image('ground3', 'assets/stone.png'); 
-        this.load.image('star3', 'assets/star.png'); 
-        this.load.image('bomb3', 'assets/bomb.png'); 
-        this.load.spritesheet('dude3', 'assets/dude.png', { 
-            frameWidth: 32, frameHeight: 48
-        });
-        
-        this.load.image('sky4', 'assets/rainbow_bg.png');
-        this.load.image('ground4', 'assets/grass.png');
-        this.load.image('star4', 'assets/star.png');
-        this.load.image('bomb4', 'assets/bomb.png');
-        this.load.spritesheet('dude4', 'assets/dude.png', {
-            frameWidth: 32, frameHeight: 48
-        });
-        
-        
-        this.load.image('sky5', 'assets/underwater_bg.png');
-        this.load.image('ground5', 'assets/sand.png');
-        this.load.image('star5', 'assets/star.png');
-        this.load.image('bomb5', 'assets/bomb.png');
-        this.load.spritesheet('dude5', 'assets/dude.png', {
-            frameWidth: 32, frameHeight: 48
-        });
-    }
-    
     init(data) {
-        
         this.score = 0;
         this.totalStarsCollected = 0;
         this.gameOver = false;
         
-        
         this.level = data.level || 1;
-        
         
         this.levelConfig = levelConfigs[this.level];
         
@@ -113,7 +62,6 @@ class GameScene extends Phaser.Scene {
             this.music.play();
         }
         
-        
         if (this.levelConfig && this.levelConfig.backgroundColor) {
             this.cameras.main.setBackgroundColor(this.levelConfig.backgroundColor);
             this.add.image(400, 300, this.levelConfig.assets.background || 'sky').setTint(this.levelConfig.backgroundColor);
@@ -121,12 +69,9 @@ class GameScene extends Phaser.Scene {
             this.add.image(400, 300, this.levelConfig.assets.background || 'sky');
         }
         
-        
         this.platforms = this.physics.add.staticGroup();
         
-        
         this.createPlatformsForLevel();
-        
         
         this.player = this.physics.add.sprite(100, 450, this.levelConfig.assets.player || 'dude');
         this.player.setBounce(0.2);
@@ -188,7 +133,6 @@ class GameScene extends Phaser.Scene {
         this.bombs = this.physics.add.group();
         this.physics.add.collider(this.bombs, this.platforms);
         
-        
         this.physics.add.overlap(this.player, this.stars, this.collectStar, null, this);
         this.physics.add.collider(this.player, this.bombs, this.hitBomb, null, this);
         
@@ -202,12 +146,8 @@ class GameScene extends Phaser.Scene {
         });
     }
 
-    
     update() {
-        
-        
         if (this.gameOver) return;
-        
         
         const playerSpeed = this.levelConfig ? this.levelConfig.playerSpeed : 160;
         
@@ -222,13 +162,11 @@ class GameScene extends Phaser.Scene {
             this.player.anims.play('turn', true);
         }
         
-        
         const jumpForce = this.levelConfig ? this.levelConfig.jumpForce : 330;
         
         if ((this.cursors.up.isDown || this.keyW.isDown) && this.player.body.touching.down) {
             this.player.setVelocityY(-jumpForce);
         }        
-        
         
         if (!this.gameOver && this.totalStarsCollected >= this.starsToCollect) {
             this.gameOver = true;
@@ -242,8 +180,6 @@ class GameScene extends Phaser.Scene {
         }
     }
     
-
-    
     collectStar(player, star) { 
         star.disableBody(true, true);
         
@@ -253,8 +189,6 @@ class GameScene extends Phaser.Scene {
         this.scoreText.setText(`Score: ${this.score}`);
         
         if (this.stars.countActive(true) === 0) {
-        
-            
             this.stars.children.iterate(child => {
                 child.enableBody(true, child.x, 0, true, true);
             });
@@ -262,7 +196,6 @@ class GameScene extends Phaser.Scene {
             let x = (this.player.x < 400) 
                 ? Phaser.Math.Between(400, 800)
                 : Phaser.Math.Between(0, 400);
-            
             
             const bombSpeed = this.levelConfig ? this.levelConfig.bombSpeed : 200;
             
@@ -273,7 +206,6 @@ class GameScene extends Phaser.Scene {
             
         }
     }
-    
     
     hitBomb(player, bomb) { 
         this.physics.pause();
@@ -305,14 +237,11 @@ class GameScene extends Phaser.Scene {
     }
 
     createPlatformsForLevel() {
-        
         if (this.platforms && this.platforms.children && this.platforms.children.entries) {
             this.platforms.clear(true, true);
         }
         
-        
         if (this.levelConfig && this.levelConfig.platforms) {
-            
             this.levelConfig.platforms.forEach(platform => {
                 this.platforms.create(
                     platform.x, 
@@ -323,7 +252,6 @@ class GameScene extends Phaser.Scene {
                 .refreshBody();
             });
         } else {
-            
             this.platforms.create(400, 568, this.levelConfig.assets.platform || 'ground').setScale(2).refreshBody();
             this.platforms.create(600, 400, this.levelConfig.assets.platform || 'ground');
             this.platforms.create(50, 250, this.levelConfig.assets.platform || 'ground');

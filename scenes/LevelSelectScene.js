@@ -3,10 +3,6 @@ class LevelSelectScene extends Phaser.Scene {
         super({ key: 'LevelSelectScene' });
     }
     
-    preload() {
-        this.load.image('levelBackground', 'assets/bg_grey.png');
-    }
-    
     create() {
         this.add.image(400, 300, 'levelBackground');
         this.add.text(400, 100, 'Выбери уровень', {

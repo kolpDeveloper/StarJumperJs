@@ -26,13 +26,13 @@ const levelConfigs = {
         bombSpeed: 180,
         playerSpeed: 180,
         jumpForce: 350,
-        backgroundColor: 0xffffff,
+        backgroundColor: 0x2c3e50,
         assets: {
             background: 'sky2',
             platform: 'ground2',
-            player: 'dude',
-            star: 'star',
-            bomb: 'bomb',
+            player: 'dude2',
+            star: 'star2',
+            bomb: 'bomb2',
             music: 'backgroundMusic'
         },
         platforms: [
@@ -48,14 +48,13 @@ const levelConfigs = {
         bombSpeed: 200,
         playerSpeed: 190,
         jumpForce: 360,
-
-        backgroundColor: 0xffffff,
+        backgroundColor: 0x8B4513,
         assets: {
             background: 'sky3',
             platform: 'ground3',
-            player: 'dude',
-            star: 'star',
-            bomb: 'bomb',
+            player: 'dude3',
+            star: 'star3',
+            bomb: 'bomb3',
             music: 'backgroundMusic'
         },
         platforms: [
@@ -72,13 +71,12 @@ const levelConfigs = {
         bombSpeed: 220,
         playerSpeed: 200,
         jumpForce: 370,
-        backgroundColor: 0xffffff,
         assets: {
             background: 'sky4',
             platform: 'ground4',
-            player: 'dude',
-            star: 'star',
-            bomb: 'bomb',
+            player: 'dude4',
+            star: 'star4',
+            bomb: 'bomb4',
             music: 'backgroundMusic'
         },
         platforms: [
@@ -90,17 +88,17 @@ const levelConfigs = {
     },
     
     5: {
-        stars: 1,
+        stars: 100,
         bombSpeed: 240,
         playerSpeed: 210,
         jumpForce: 380,
-        backgroundColor: 0x000000,
+        backgroundColor: 0x006994,
         assets: {
             background: 'sky5',
             platform: 'ground5',
-            player: 'dude',
-            star: 'star',
-            bomb: 'bomb',
+            player: 'dude5',
+            star: 'star5',
+            bomb: 'bomb5',
             music: 'backgroundMusic'
         },
         platforms: [

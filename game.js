@@ -1,3 +1,4 @@
+import PreloaderScene from './scenes/PreloaderScene.js';
 import MainMenuScene from './scenes/MainMenuScene.js';
 import LevelSelectScene from './scenes/LevelSelectScene.js';
 import SettingsScene from './scenes/SettingsScene.js';
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 debug: isDebugMode
             }
         },
-        scene: [MainMenuScene, LevelSelectScene, SettingsScene, GameScene, WinScene]
+        scene: [PreloaderScene, MainMenuScene, LevelSelectScene, SettingsScene, GameScene, WinScene]
     };
     
     let game = new Phaser.Game(config);

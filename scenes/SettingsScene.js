@@ -3,10 +3,6 @@ class SettingsScene extends Phaser.Scene {
         super({ key: 'SettingsScene' });
     }
     
-    preload() {
-        this.load.image('settingsBackground', 'assets/bg_grey.png');
-    }
-    
     create() {
         this.add.image(400, 300, 'settingsBackground');
         this.add.text(400, 100, 'Настройки', {

@@ -3,10 +3,6 @@ class MainMenuScene extends Phaser.Scene {
         super({key: 'MainMenuScene'});
     }
     
-    preload() {
-        this.load.image('menuBackground', 'assets/mainMenuBg.png');
-    }
-    
     create() {
         this.add.image(400, 300, 'menuBackground');
         this.add.text(400, 100, 'Star Jumper', {

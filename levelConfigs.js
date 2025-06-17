@@ -37,6 +37,7 @@ const levelConfigs = {
         },
         platforms: [
             { x : 400, y : 568, scale : 2 },   
+            { x: 50, y: 210, scale: 1 },
             { x : 650, y : 338, scale : 0.6 },
             
         ]
@@ -89,7 +90,7 @@ const levelConfigs = {
     },
     
     5: {
-        stars: 100,
+        stars: 1,
         bombSpeed: 240,
         playerSpeed: 210,
         jumpForce: 380,

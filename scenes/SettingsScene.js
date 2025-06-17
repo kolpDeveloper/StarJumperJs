@@ -19,7 +19,8 @@ class SettingsScene extends Phaser.Scene {
         
         this.add.text(250, 250, 'Debug Mode:', {
             fontSize: '24px',
-            fill: '#ffffff'
+            fill: '#ffffff',
+            padding: { left: 10, right: 10, top: 5, bottom: 5 }
         }).setOrigin(0, 0.5);
 
         const checkboxBg = this.add.rectangle(450, 250, 30, 30, 0x333333)

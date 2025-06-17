@@ -8,15 +8,32 @@ class WinScene extends Phaser.Scene {
 
     init(data){
         this.level = data.level;
+        this.background = data.background;
     }
 
 
     create() {
+        if (this.background) {
+            const bg = this.add.image(400, 300, this.background);
+            bg.setPipeline('Light2D'); 
+            bg.setTint(0x808080);
+        }
+
+        
+        if (this.background) {
+            const blurredBg1 = this.add.image(400, 300, this.background);
+            blurredBg1.setAlpha(0.4);
+            blurredBg1.setTint(0x666666);
+            blurredBg1.setScale(1.05);
+            blurredBg1.setDepth(0);
+
+        }
+        
         this.add.text(400, 100, '🎉 Победа! 🎉', {
             fontSize: '48px',
             fill: '#00ff00',
             fontStyle: 'bold',
-        }).setOrigin(0.5);
+        }).setOrigin(0.5).setDepth(10);
 
 
         const restartButton = this.add.text(400,400, "Перезапуск",{
@@ -26,6 +43,7 @@ class WinScene extends Phaser.Scene {
             padding: { left: 20, right: 20, top: 10, bottom: 10 }
         }).setOrigin(0.5)
             .setInteractive({ useHandCursor: true })
+            .setDepth(10)
             .on('pointerover', () => restartButton.setStyle({ fill: '#ff0' }))
             .on('pointerout', () => restartButton.setStyle({ fill: '#ffffff' }))
             .on('pointerdown', () => {
@@ -41,6 +59,7 @@ class WinScene extends Phaser.Scene {
                 padding: {left: 20, right: 20, top: 10, bottom: 10}
             }).setOrigin(0.5)
             .setInteractive({useHandCursor: true})
+            .setDepth(10)
             .on('pointerover', () => toNextLevel.setStyle({ fill: '#ff0' }))
             .on('pointerout', () => toNextLevel.setStyle({ fill: '#ffffff' }))
             .on('pointerdown', () => { 
@@ -65,6 +84,7 @@ class WinScene extends Phaser.Scene {
             padding: { left: 20, right: 20, top: 10, bottom: 10 }
         }).setOrigin(0.5)
             .setInteractive({ useHandCursor: true })
+            .setDepth(10)
             .on('pointerover', () => toMainMenuButton.setStyle({ fill: '#ff0' }))
             .on('pointerout', () => toMainMenuButton.setStyle({ fill: '#ffffff' }))
             .on('pointerdown', () => {

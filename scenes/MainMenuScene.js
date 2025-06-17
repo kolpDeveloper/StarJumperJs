@@ -8,8 +8,9 @@ class MainMenuScene extends Phaser.Scene {
         this.add.text(400, 100, 'Star Jumper', {
             fontSize: '64px',
             fill: '#ffffff',
-            fontStyle: 'bold'
-        }).setOrigin(0.5);
+            fontStyle: 'bold',
+        }).setOrigin(0.5)
+        .setShadow(3, 3, 'rgba(0,0,0,0.5)', 1);
         
         const playButton = this.add.text(400, 250, 'Играть', {
             fontSize: '32px',

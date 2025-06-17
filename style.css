@@ -1,25 +1,25 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #0a0a0a;
+    background: #000;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    perspective: 1000px;
+    font-family: 'Arial', sans-serif;
 }
 
 #game-container {
     width: 800px;
     height: 600px;
     position: relative;
-    border: 12px solid #111;
-    border-radius: 5px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    border: 8px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
     overflow: hidden;
     z-index: 10;
+    background: #000;
 }
-
 
 .arcade-cabinet {
     position: absolute;
@@ -27,26 +27,11 @@ body {
     height: 1200px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -43%);
+    transform: translate(-50%, -50%);
     z-index: -1;
     display: flex;
     justify-content: center;
 }
-
-
-.arcade-cabinet::before {
-    content: '';
-    position: absolute;
-    width: 900px;
-    height: 1100px;
-    background: linear-gradient(135deg, #2a2a2a 0%, #151515 100%);
-    border-radius: 20px 20px 0 0;
-    box-shadow: 
-        -15px 0 20px rgba(0, 0, 0, 0.4),
-        15px 0 20px rgba(0, 0, 0, 0.4),
-        0 -5px 30px rgba(0, 0, 0, 0.4);
-}
-
 
 .arcade-cabinet::after {
     content: '';
@@ -54,79 +39,23 @@ body {
     width: 850px;
     height: 700px;
     top: 100px;
-    background-color: #111;
+    background: #000;
     border-radius: 10px;
-    box-shadow: 
-        inset 0 0 20px rgba(0, 0, 0, 0.8),
-        0 0 10px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
 }
-
-
-.control-panel {
-    position: absolute;
-    width: 750px;
-    height: 150px;
-    bottom: 150px;
-    background: linear-gradient(to bottom, #333 0%, #222 100%);
-    border-radius: 10px;
-    box-shadow: 
-        inset 0 3px 5px rgba(255, 255, 255, 0.1),
-        0 -5px 10px rgba(0, 0, 0, 0.5);
-    z-index: 5;
-}
-
-
-.side-panel-left, .side-panel-right {
-    position: absolute;
-    width: 50px;
-    height: 700px;
-    top: 100px;
-    background: linear-gradient(to right, #d80000, #8b0000);
-    z-index: -2;
-}
-
-.side-panel-left {
-    left: 50%;
-    transform: translateX(-475px);
-    border-radius: 10px 0 0 10px;
-    box-shadow: -10px 0 15px rgba(0, 0, 0, 0.6);
-}
-
-.side-panel-right {
-    right: 50%;
-    transform: translateX(475px);
-    background: linear-gradient(to left, #d80000, #8b0000);
-    border-radius: 0 10px 10px 0;
-    box-shadow: 10px 0 15px rgba(0, 0, 0, 0.6);
-}
-
-
-.side-panel-left::before, .side-panel-right::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        to bottom,
-        transparent,
-        transparent 30px,
-        rgba(255, 255, 0, 0.2) 30px,
-        rgba(255, 255, 0, 0.2) 32px
-    );
-}
-
 
 .cabinet-base {
     position: absolute;
     width: 850px;
-    height: 100px;
-    bottom: 0;
-    background: linear-gradient(to bottom, #333, #111);
+    height: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 350px);
+    background: #000;
     border-radius: 0 0 20px 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
     z-index: -3;
 }
-
 
 #arcade-elements {
     position: absolute;
